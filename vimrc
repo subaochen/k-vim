@@ -686,5 +686,21 @@ highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
 
 
+autocmd bufnewfile *.dot call Headerdot()
+function Headerdot()
+   call setline(1,"//usr/bin/dot")
+   call append(1,"digraph G{")
+   call append(2,"")
+   call append(3,"}")
+   normal 3G
+endf
 
+"graphviz
+"let g:WMGraphviz_dot = "dot"
+"let g:WMGraphviz_output = "png"
+"let g:WMGraphviz_viewer = "xdg-open"
+"let g:WMGraphviz_shelloptions = ""
+nmap <Leader>lv :w<CR>:!dot -Tpng -o %<.png %<CR>:!eog %<.png<CR>
+nmap <Leader>ls :w<CR>:!dot -Tsvg -o %<.svg %<CR>:!eog %<.svg<CR>
+nmap <Leader>lp :w<CR>:!dot -Tpdf -o %<.pdf %<CR>:!xpdf %<.pdf<CR>
 
