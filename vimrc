@@ -700,7 +700,9 @@ endf
 "let g:WMGraphviz_output = "png"
 "let g:WMGraphviz_viewer = "xdg-open"
 "let g:WMGraphviz_shelloptions = ""
+" Leader = , 见line 27
 nmap <Leader>lv :w<CR>:!dot -Tpng -o %<.png %<CR>:!eog %<.png<CR>
-nmap <Leader>ls :w<CR>:!dot -Tsvg -o %<.svg %<CR>:!eog %<.svg<CR>
+nmap <Leader>ls :w<CR>:!dot -Tps:cairo -o %<.ps %<CR>:!evince %<.ps<CR>
+nmap <Leader>lg :w<CR>:!dot -Tsvg -o %<.svg %<CR>:!eog %<.svg<CR>
 nmap <Leader>lp :w<CR>:!dot -Tpdf -o %<.pdf %<CR>:!xpdf %<.pdf<CR>
 
